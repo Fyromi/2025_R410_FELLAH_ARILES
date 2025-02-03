@@ -17,39 +17,46 @@ function getObject() {
 module.exports = {
   // 1) Renvoyer la propriété description
   Q1() {
-    // Implémentation ici
+    return getObject()["description"];
   },
 
   // 2) Renvoyer la propriété city
   Q2() {
-    // Implémentation ici
+    return getObject().address.city;
   },
 
   // 3) Renvoyer les clés de l'objet sous forme de tableau
   Q3() {
-    // Implémentation ici
+    return Object.keys(getObject());
   },
 
   // 4) --- Supprimée ---
 
   // 5) Ajouter la propriété email à myObject et renvoyer l'objet modifié
   Q5() {
-    // Implémentation ici
+    let objet = getObject();
+    objet.email = email;
+    return objet;
   },
 
   // 6) Ajouter une propriété dynamique étant le résultat de la concaténation des chaines hello et world et dont la valeur est true
   // renvoyer l'objet modifié
   Q6() {
-    // Implémentation ici
+    let objet = getObject();
+    objet["hello" + "world"] = true;
+    //Sinon on peux faire avec un concat : "Hello".concat("World")
+    return objet;
   },
 
   // 7) Supprimer la propriété isBestObject et renvoyer l'objet
   Q7() {
-    // Implémentation ici
+    let objet = getObject();
+    delete(objet.isBestObject);
+    return objet;
   },
 
   // 8) Vérifier que la propriété description existe dans l'objet, renvoyer un booléen
   Q8() {
-    // Implémentation ici
+    return getObject().hasOwnProperty("description");
   },
 };
