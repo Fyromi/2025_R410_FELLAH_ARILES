@@ -43,8 +43,7 @@ module.exports = {
   // renvoyer l'objet modifié
   Q6() {
     let objet = getObject();
-    objet["hello" + "world"] = true;
-    //Sinon on peux faire avec un concat : "Hello".concat("World")
+    objet["Hello".concat("World")] = true;
     return objet;
   },
 
