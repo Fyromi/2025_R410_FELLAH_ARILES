@@ -14,13 +14,7 @@ Créez le type HttpMethod, qui combine les valeurs suivantes (chaines de caract�
 Retenez ces verbes, ils sont utilisés aussi bien en backend qu'en frontend
 */
 
-type HttpMethod = {
-    GET: string;
-    POST: string;
-    PUT: string;
-    PATCH: string;
-    DELETE: string;
-}
+type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 /*
 2. La Requête 
@@ -41,14 +35,14 @@ Créez le type associé
 A noter: En TS, on note l'inconnu avec le type unknown. Ce type évite d'utiliser any et nécessite un cast ultérieur vers la valeur souhaitée
 */
 
-    type requete = {
-        methode: HttpMethod;
-        url: string;
-        params: Array<String>;
-        query: string | Record<string, unknown>;
-        body?: Record<string, unknown>;
-        header: {"Content-Type": string} & Record<string, unknown>;
-    }
+type Requete = { 
+    method: HttpMethod;
+    url: string;
+    params?: Array<string>;
+    query?: string | Record<string, string>;
+    body?: Record<string, unknown>;
+    headers: {'Content-Type': string} & Record<string, string>;
+};
 
 /* 
 3. Guard
@@ -63,10 +57,9 @@ La fonction canActivate prend un paramètre, de type Request
 
 Retenez la notion de Guard, elle vous sera utile en Angular également
 */
-    type Guard = {
-        canActivate(nomArgument: Request): boolean | Promise<boolean>
-    }
-
+type Guard = {
+    canActivate(param:Request): boolean | Promise<boolean>;
+};
 /*
 4. Interceptor 
 
@@ -78,9 +71,9 @@ Le type est également très simple, il contient une fonction intercept, qui ne 
 Angular utilise également la notion d'intercepteur, nous la verrons en troisième année
 */
 
-    type intercepteur= {
-        intercept(nomArgument: Request):void
-    }
+type Interceptor = {
+    intercept(param:Request):void;
+};
 
 /*
 5. Déclarez un type ValidationSchema.
@@ -102,9 +95,10 @@ Le type ValidationSchema est constitué de deux propriétés:
 - required, un tableau de chaines de caractères, facultatif
 */
 
-    type ValidationSchema = {
-        
-    }
+type ValidationSchema = {
+    fields: Record<string, Record<string, unknown>>;
+    required?: Array<string>;
+};
 
 /*
 6. La Route
@@ -121,10 +115,18 @@ Une route est composée des paramètres suivants:
 - responseInterceptors, une liste d'Interceptors, facultative
 
 Vous verrez tout ça plus en détail en cours d'Architecture et en troisième année
-/*
+*/
 
-// Implémentez ici
+type Route = {
+    path: string;
+    method: HttpMethod; //J'ai déduit que c'était ca car RequestMethod est pas défnit dans l'exo
+    handler: string;
+    guards?: Array<Guard>;
+    validationSchema?: ValidationSchema;
+    requestInterceptors?: Array<Interceptor>;
+    responseInterceptors?: Array<Interceptor>;
 
+};
 
 /*
 7. La Réponse
@@ -141,3 +143,9 @@ Notre réponse aura les propriétés suivantes:
 Angular gèrera une bonne partie de la réponse pour vous, il vous donnera directement accès au body, et propose un 
 système de gestion d'erreur.
 */
+
+type Reponse = {
+    statusCode: number;
+    headers: {'Content-type': string} & Record<string, string>
+    body?: Record<string, unknown>;
+};
