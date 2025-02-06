@@ -11,6 +11,9 @@ Nous allons utiliser une approche généraliste, et nous ferons la supposition q
 fonctionnent avec des fonctions communes, ce qui nous fera une très bonne occasion de pratiquer le I de SOLID.
 */
 
+import { count } from "console";
+import { __extends } from "tslib";
+
 /* 
 1. Etablir une interface générique
 
@@ -35,7 +38,9 @@ Sa seule propriété est une fonction findMany, qui ne prend pas d'argument et r
 attention on renvoie un tableau de T
 */
 
-// Implémentez ici
+interface FindMany<T>{
+    findMany():Promise<Array<T>>;
+}
 
 /*
 2. Faire le reste du CRUD 
@@ -59,7 +64,7 @@ Prenez par exemple un administrateur à l'IUT qui travaille sur les étudiants, 
 - Modifier un étudiant actuel
 - Supprimer un étudiant
 
-Dans la première question, vous avez fait FindMany. Sur le même modèle, faites FindOne, Create, Update et Delete.
+/*Dans la première question, vous avez fait FindMany. Sur le même modèle, faites FindOne, Create, Update et Delete.
 
 - findOne, prend un id, et renvoie une promesse générique
 - create, prend une entrée de type générique, et renvoie une promesse générique
@@ -67,7 +72,21 @@ Dans la première question, vous avez fait FindMany. Sur le même modèle, faite
 - delete, prend en argument un id, et renvoie une promesse qui ne renvoie rien (pas de générique sur cette interface, on utilisera le type associé)
 */
 
-// Implémentez ici
+interface FindOne<T>{
+    findOne(id: number):Promise<T>;
+}
+
+interface Create<T>{
+    create(arg: T):Promise<T>;
+}
+
+interface Update<T>{
+    update(id: number, arg: T):Promise<T>;
+}
+
+interface Delete{
+    delete(id: number):Promise<void>;
+}
 
 /*
 3. Créer les types Student et Course
@@ -85,7 +104,19 @@ Un cours est matérialisé par:
 - active, booléen
 */
 
-// Implémentez ici
+type Student = {
+    id: number;
+    firstName: string;
+    lastName: string;
+    group: string;
+};
+
+type Course = {
+    id: number;
+    name: string;
+    enseignant: string;
+    active: boolean;
+};
 
 /*
 4. Créer les interfaces StudentRepository et CourseRepository
@@ -96,8 +127,12 @@ Ces deux interfaces vont étendre les interfaces CRUD que vous avez créées et 
 - CourseRepository étend FindMany, FindOne, Create et Update uniquement. Chaque interface prend Course en paramètre
 */
 
-// Implémentez ici
+interface StudentRepository extends FindMany<Student>, FindOne<Student>, Create<Student>, Update<Student>, Delete {
 
+}
+interface CourseRepository extends FindMany<Course>, FindOne<Course>, Create<Course>, Update<Course> {
+
+}
 /*
 5. Implémentation des classes
 
@@ -111,7 +146,91 @@ Chaque fonction devra être précédée du mot clé async : https://developer.mo
 Pour les findMany, retournez simplement un tableau vide, pour les autres, vous pouvez retourner null pour chaque méthode
 */
 
-// Implémentez ici
+class SQLStudentRepository implements StudentRepository{
+
+    repo: Array<Student> = [];
+
+    async findMany():Promise<Array<Student>>{
+        return this.repo;
+    }
+
+    async findOne(id: number): Promise<Student>{
+        let found: Student = {
+            id:0,
+            firstName:"",
+            lastName:"",
+            group: ""
+        }
+    
+        this.repo.forEach(student => {
+            if (student.id ===  id)
+                found = student;
+            }
+        );
+
+        return found;
+    }
+    async create(arg: Student):Promise<Student>{
+        this.repo.push(arg);
+        return arg;
+    }
+
+    async update(id: number, arg: Student): Promise<Student>{
+        this.repo.forEach(student => {
+            if (student.id ===  id){
+                this.repo[this.repo.indexOf(student)] = arg;
+            }
+        });
+        return arg;
+    }
+
+    async delete(id: number):Promise<void>{
+        this.repo.forEach(student => {
+            if (student.id ===  id){
+                this.repo.splice(this.repo.indexOf(student), 1)
+            }
+        });
+    }
+}
+
+class SQLCourseRepository implements CourseRepository{
+
+    repo: Array<Course> = [];
+
+    async findMany():Promise<Array<Course>>{
+        return this.repo;
+    }
+
+    async findOne(id: number): Promise<Course>{
+        let found: Course = {
+            id:0,
+            name: "",
+            enseignant: "",
+            active: true,
+        }
+    
+        this.repo.forEach(course => {
+            if (course.id ===  id)
+                found = course;
+            }
+        );
+
+        return found;
+    }
+    async create(arg: Course):Promise<Course>{
+        this.repo.push(arg);
+        return arg;
+    }
+
+    async update(id: number, arg: Course): Promise<Course>{
+        this.repo.forEach(course => {
+            if (course.id ===  id){
+                this.repo[this.repo.indexOf(course)] = arg;
+            }
+        });
+        return arg;
+    }
+}
 
 /**
  * Ca y est, vous êtes des génies (en devenir) du design logiciel en POO (le web aujourd'hui c'est beaucoup de software design, va falloir se préparer)
