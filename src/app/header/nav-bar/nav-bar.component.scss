@@ -1,0 +1,16 @@
+li {
+    display: inline;
+    margin-right: 1rem;
+    color: #1F1534;
+    font-size: 18px;
+    opacity: 50%;
+}
+  
+li:first-child {
+    opacity: 100%;
+    color: #1F1534;
+}
+  
+ul{
+    padding: 0;
+}
