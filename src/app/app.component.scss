@@ -15,8 +15,19 @@ app-our-services{
     align-items: center;
     text-align: center;
 }
+@media screen and (width <= 600px){
+    app-footer{
+        flex-direction: column;
+    }
+}
+
 app-footer{
     display: flex;
     background: linear-gradient(183.41deg, #67C3F3 -8.57%, #5A98F2 82.96%);
     color: white;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 5rem;
 }

@@ -11,7 +11,7 @@ import { UserLogoComponent } from './user-logo/user-logo.component';
 })
 export class UserComponent {
   
-  name: string = "Toto";
+  name: string = "Trafalgar";
   initial: string = this.name[0];
 
 }
