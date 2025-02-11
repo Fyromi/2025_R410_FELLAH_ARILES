@@ -19,39 +19,35 @@ export class GrilleServiceComponent {
   onglets: Array<Onglet> = [];
 
   constructor(){
-  this.onglets.push({
-      image: 'Search',
-      titre:"Search doctor",
-      description: "Choose your doctor from thousands of specialist, general, and trusted hospitals",
-  },
-  {
-    image: 'Online',
-      titre:"Online pharmacy",
-      description: "Buy  your medicines with our mobile application with a simple delivery system",
-  },
-  {
-    image: 'Consultation',
-    titre:"Consultation",
-    description: "Free consultation with our trusted doctors and get the best recomendations",
-  },
-  {
-    image:"Details",
-    titre:"Details info",
-    description: "Free consultation with our trusted doctors and get the best recomendations",
-  },
-  {
-    image:"Emergency",
-    titre:"Emergency care",
-    description: "You can get 24/7 urgent care for yourself or your children and your lovely family",
-  },
-  {
-    image:"Tracking",
-    titre:"Tracking",
-    description: "Track and save your medical history and health data",
-  })
-}
-
-getOnglet(){
-  return this.onglets;
-}
+    this.onglets.push({
+        image: 'Search',
+        titre:"Search doctor",
+        description: "Choose your doctor from thousands of specialist, general, and trusted hospitals",
+    },
+    {
+      image: 'Online',
+        titre:"Online pharmacy",
+        description: "Buy  your medicines with our mobile application with a simple delivery system",
+    },
+    {
+      image: 'Consultation',
+      titre:"Consultation",
+      description: "Free consultation with our trusted doctors and get the best recomendations",
+    },
+    {
+      image:"Details",
+      titre:"Details info",
+      description: "Free consultation with our trusted doctors and get the best recomendations",
+    },
+    {
+      image:"Emergency",
+      titre:"Emergency care",
+      description: "You can get 24/7 urgent care for yourself or your children and your lovely family",
+    },
+    {
+      image:"Tracking",
+      titre:"Tracking",
+      description: "Track and save your medical history and health data",
+    })
+  }
 }

@@ -10,14 +10,4 @@ import { Component, Input } from '@angular/core';
 export class OngletsServiceComponent {
     @Input() onglet!: {titre: string; description: string; image:string}
 
-    getTitre(){
-        return this.onglet.titre;
-    }
-    getDesciption(){
-        return this.onglet.description;
-    }
-
-    getImage(){
-        return this.onglet.image;
-    }
 }
