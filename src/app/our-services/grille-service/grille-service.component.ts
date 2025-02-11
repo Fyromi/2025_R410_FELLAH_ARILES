@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { OngletsServiceComponent } from './onglets-service/onglets-service.component';
-import { CommonModule } from '@angular/common';
 
 type Onglet = {
     image: string;
@@ -11,7 +10,7 @@ type Onglet = {
 @Component({
   selector: 'app-grille-service',
   standalone: true,
-  imports: [OngletsServiceComponent, CommonModule],
+  imports: [OngletsServiceComponent],
   templateUrl: './grille-service.component.html',
   styleUrl: './grille-service.component.scss'
 })

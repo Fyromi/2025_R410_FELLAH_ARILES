@@ -1,3 +1,5 @@
 <ul>
-    <li *ngFor= "let element of getNames()">{{ element }}</li>
+    @for(element of names; track $index){
+        <li>{{element}}</li>
+    }
 </ul>

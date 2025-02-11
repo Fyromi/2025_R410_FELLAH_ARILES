@@ -7,7 +7,7 @@ app-desc-our-services{
 app-grille-service{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 100%;
+    gap: 7rem;
     margin-top: 3rem;
 }
 

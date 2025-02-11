@@ -1,4 +1,6 @@
-<h4>{{getTitle()}}</h4>
+<h4>{{liste.title}}</h4>
 <ul>
- <li *ngFor= 'let element of getElement()'>{{element}}</li>   
+    @for(element of liste.element; track $index){
+        <li> {{element}}</li> 
+    }
 </ul>

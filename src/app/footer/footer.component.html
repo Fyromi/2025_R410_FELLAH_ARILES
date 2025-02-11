@@ -1,2 +1,4 @@
 <app-desc-footer></app-desc-footer>
-<app-liste-donnee-footer *ngFor= "let element of getListe()" [liste]="element" ></app-liste-donnee-footer>
+@for(element of liste; track $index){
+    <app-liste-donnee-footer [liste]="element"></app-liste-donnee-footer>
+}

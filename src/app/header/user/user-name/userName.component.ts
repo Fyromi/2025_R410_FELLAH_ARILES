@@ -11,7 +11,4 @@ export class UserNameComponent{
 
     @Input() name! : string;
 
-    getName(): string{
-      return this.name;
-    }
 }

@@ -9,10 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class UserLogoComponent {
     
-  @Input() initial!: string;
+  @Input({required:true}) initial!: string;
 
-  getFirstChar(): string {
-    console.log(this.initial);
-    return this.initial;
-  }
 }

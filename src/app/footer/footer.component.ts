@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DescFooterComponent } from './desc-footer/desc-footer.component';
 import { ListeDonneeFooterComponent } from './liste-donnee-footer/liste-donnee-footer.component';
-import { CommonModule } from '@angular/common';
 
 type listeFooter = {
   title:string;
@@ -11,7 +10,7 @@ type listeFooter = {
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [DescFooterComponent, ListeDonneeFooterComponent, CommonModule],
+  imports: [DescFooterComponent, ListeDonneeFooterComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
@@ -24,8 +23,5 @@ export class FooterComponent {
                     { title: 'Region', element: ['Indonesia', 'Singapore', 'Hongkong', 'Canada']},
                     { title: 'Help', element : ['Help center', 'Contact support', 'Instructionsr', 'How it works']},
     );
-  }
-  getListe(){
-    return this.liste;
   }
 }
