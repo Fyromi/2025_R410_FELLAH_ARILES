@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ProfilComponent } from './profil/profil.component';
-import { Customer } from '../customer-saying.component'
+import { Customer } from '../../global-customer-saying.component';
 
 @Component({
   selector: 'app-profil-com',

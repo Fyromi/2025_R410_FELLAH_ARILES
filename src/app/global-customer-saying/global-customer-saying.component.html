@@ -1,1 +1,2 @@
-<app-customer-saying/>
+<app-customer-saying [customer] = "customers[index]" />
+<app-buttons (value)="changeCustomer($event)"/>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Customer } from '../../../global-customer-saying.component';
 
 @Component({
   selector: 'app-profil',
@@ -8,5 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './profil.component.scss'
 })
 export class ProfilComponent {
-  @Input({required:true}) name! :string;
+  @Input({required:true}) customer! :Customer;
 }
