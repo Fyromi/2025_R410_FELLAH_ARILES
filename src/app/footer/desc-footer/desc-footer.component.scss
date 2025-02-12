@@ -8,12 +8,12 @@ app-user{
     align-items: center;
     width: 41px;
     height: 41px;
-    border-radius: 50%; /* Cercle parfait */
-    background-color: white; /* Cercle blanc */
+    border-radius: 50%;
+    background-color: white;
     color: black;
     font-weight: bold;
     font-size: 30px;
-    mix-blend-mode: screen; /* Effet de transparence */
+    mix-blend-mode: screen;
 }
 p{
     font-weight: 300;

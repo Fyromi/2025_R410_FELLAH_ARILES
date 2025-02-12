@@ -1,8 +1,14 @@
 img{
-    width: 133px;
-    height: 133px;
+    height: 141px;
+    border-radius: 50%;
+    border: white solid 4px;
+    margin: 3rem;
+    margin-left: 0;
 }
 
-h4{
-    margin: 3rem;
+@media screen and (width <= 600px) {
+    img{
+
+        margin: 0;
+    }
 }
