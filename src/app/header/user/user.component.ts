@@ -5,7 +5,7 @@ import { UserLogoComponent } from './user-logo/user-logo.component';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [UserNameComponent, UserLogoComponent, ],
+  imports: [UserNameComponent, UserLogoComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
