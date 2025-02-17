@@ -6,7 +6,8 @@
         padding-right: 0;
     }
 }
-@media screen and (width > 600px){
+@media screen and (min-width: 601px){
+
     img{
         width: 693px;
         height: 598px;
