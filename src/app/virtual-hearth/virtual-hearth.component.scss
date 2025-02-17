@@ -6,12 +6,12 @@
         padding-right: 0;
     }
 }
-
-img{
-    width: 693px;
-    height: 598px;
+@media screen and (width > 600px){
+    img{
+        width: 693px;
+        height: 598px;
+    }
+    app-desc-virtual-hearth{
+        padding-right: 5rem;
+    }
 }
-app-desc-virtual-hearth{
-    padding-right: 5rem;
-}
-
