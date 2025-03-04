@@ -1,1 +1,24 @@
-<p>create-book-page works!</p>
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <label for="author">Auteur :</label>
+    <input type="text" id="author" formControlName="author">
+    @if(bookForm.get('author')?.invalid && bookForm.get('author')?.touched){
+        <p>Pas assez (ou trop) de lettre</p>
+    }
+    <br>
+    
+    <label for="title">Titre :</label>
+    <input type="text" id="title" formControlName="title">
+    @if(bookForm.get('title')?.invalid && bookForm.get('title')?.touched){
+        <p>Pas assez (ou trop) de lettre</p>
+    }
+    <br>
+    
+    <label for="description">Description :</label>
+    <textarea id="description" formControlName="description"></textarea>
+    @if(bookForm.get('description')?.invalid && bookForm.get('description')?.touched){
+        <p>Pas assez (ou trop) de lettre</p>
+    }
+    <br>
+    
+    <button type="submit" [disabled]="bookForm.invalid"> Ajouter </button>
+</form>
