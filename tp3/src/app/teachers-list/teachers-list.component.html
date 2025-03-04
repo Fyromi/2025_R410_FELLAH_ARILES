@@ -1,0 +1,10 @@
+<h2>Nos Professeurs</h2>
+<ul class="grid">
+  @for (teacher of teachers; track $index) {
+  <li>
+    <p>Nom: {{ teacher.name }}</p>
+    <p>Matière: {{ teacher.subject }}</p>
+    <a [routerLink]="'/detail/' + teacher.id">Voir plus</a>
+  </li>
+  }
+</ul>

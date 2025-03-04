@@ -1,0 +1,16 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="main-logo">App</a>
+    <nav>
+      <ul>
+        <li><a routerLink="/student" routerLinkActive="current">Home</a></li>
+        @if (isLoggedIn$ | async) {
+        <li><button (click)="logOut()">Logout</button></li>
+        }
+        @else {
+        <li><button (click)="login()">Login</button></li>
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

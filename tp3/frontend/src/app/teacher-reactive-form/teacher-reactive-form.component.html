@@ -1,0 +1,20 @@
+<form [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
+  <label for="name">Nom :</label>
+  <input type="text" id="name" formControlName="name" />
+  @if (teacherForm.get('name')?.invalid && teacherForm.get('name')?.touched) {
+  <p>
+    Nom requis (min. 3 caractères)
+  </p>
+  }
+
+  <label for="subject">Matière :</label>
+  <select id="subject" formControlName="subject">
+    @for (subject of subjects; track $index ){
+    <option [value]="subject">
+      {{ subject }}
+    </option>
+    }
+  </select>
+
+  <button type="submit" [disabled]="teacherForm.invalid">Créer</button>
+</form>
