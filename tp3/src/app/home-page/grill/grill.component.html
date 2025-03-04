@@ -1,0 +1,5 @@
+<ul>
+    @for (voyage of voyages; track $index) {
+        <li><app-onglet (suppr)="supprimerVoyage($event)" [voyage]="voyage"/></li>
+    }
+</ul>

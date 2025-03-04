@@ -1,0 +1,84 @@
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Conteneur modal */
+.modalSuppressionVoyage {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+/* En-tête de la modal */
+.modal-header {
+    background-color: #dc3545; /* Rouge Bootstrap */
+    color: white;
+    padding: 1rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* Titre modal */
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Contenu modal */
+.contenuModal {
+    padding: 1rem;
+}
+
+/* Texte du modal */
+h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Boutons */
+button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 0.5rem;
+}
+
+.boutonSupprimer {
+    background-color: #dc3545;
+    color: white;
+}
+
+.boutonSupprimer:hover {
+    background-color: #c82333;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}

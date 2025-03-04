@@ -1,0 +1,15 @@
+<div class="overlay">
+    <div class="modalSuppressionVoyage">
+        <div class="modal-header bg-danger text-white">
+            <h2 class="modal-title">Suppression de voyage</h2>
+        </div>
+        <div class="contenuModal">
+        <h4 class="mb-4">Êtes-vous sûr de vouloir supprimer ce voyage ?</h4>
+        <h4 class="mt-3">{{voyageSupp.destination}}</h4>
+        <p>{{voyageSupp.description}}</p>
+        <p class="fw-bold" >À partir de {{voyageSupp.prix}}€</p>
+        <button class="btn btn-danger boutonSupprimer" (click)="supprimerVoyage()">Supprimer</button>
+        <button class="btn btn-secondary" (click)="annulerSupp()">Annuler</button>
+        </div>    
+    </div>
+</div>
