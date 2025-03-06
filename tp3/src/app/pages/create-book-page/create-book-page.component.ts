@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { FormControl, FormGroup, MinLengthValidator, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BooksInMemoryService } from '../../services/book-inmemory.service';
 import { Book } from '../../models/book';
 import { Router } from '@angular/router';
+import { OumarService } from '../../services/oumar.service';
 
 @Component({
   selector: 'app-create-book-page',
@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 })
 export class CreateBookPageComponent {
 
-  private readonly serviceBook = inject(BooksInMemoryService)
+  private readonly oumarBook = inject(OumarService)
+  private readonly destroyRef = inject(DestroyRef);
 
   constructor(private readonly router: Router){}
 
@@ -25,7 +26,7 @@ export class CreateBookPageComponent {
   
   onSubmit(){
     if(this.bookForm.valid)
-      this.serviceBook.createBook(this.bookForm.value as Book)
+      this.oumarBook.createBook(this.bookForm.value as Book).subscribe();
       this.router.navigate(['/'])
   }
   

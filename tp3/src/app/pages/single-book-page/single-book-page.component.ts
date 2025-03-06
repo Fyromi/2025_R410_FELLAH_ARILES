@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { Book } from '../../models/book';
 import { ActivatedRoute } from '@angular/router';
-import { BooksInMemoryService } from '../../services/book-inmemory.service';
+import { OumarService } from '../../services/oumar.service';
 
 @Component({
   selector: 'app-single-book-page',
@@ -13,13 +13,21 @@ import { BooksInMemoryService } from '../../services/book-inmemory.service';
 export class SingleBookPageComponent implements OnInit {
   book?: Book;
 
+
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly bookService: BooksInMemoryService
+    private readonly oumarSerive: OumarService,
+    private readonly destroyRef: DestroyRef
   ) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.book = this.bookService.getBookById(id);
+    const subscription = this.oumarSerive.getBookById(id).subscribe((data) => {
+      this.book = data;
+    });
+
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    })
   }
 }
