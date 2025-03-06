@@ -14,7 +14,6 @@ import { OumarService } from '../../services/oumar.service';
 export class CreateBookPageComponent {
 
   private readonly oumarBook = inject(OumarService)
-  private readonly destroyRef = inject(DestroyRef);
 
   constructor(private readonly router: Router){}
 

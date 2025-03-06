@@ -41,3 +41,6 @@ def delete_book(book_id):
     global books
     books = [book for book in books if book["id"] != book_id]
     return jsonify({"message": "Book deleted"}), 200
+
+if __name__ == '__main__':
+    app.run()
